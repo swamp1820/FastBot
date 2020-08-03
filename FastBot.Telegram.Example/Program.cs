@@ -6,7 +6,7 @@ namespace FastBot.Telegram.Example
     {
         static void Main(string[] args)
         {
-            Bot<User>.Init("576893784:AAFNTwceZZUg04EWi0tGaYzdKwPLX3D1IXQ");
+            Bot<User>.Init("bot_token");
             Console.ReadLine();
         }
     }
