@@ -15,7 +15,7 @@ namespace FastBot.Telegram.Classes
 
         protected TelegramBotClient Client { get; private set; }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public abstract Task CheckAnswer(Message message, T userState);
 
         /// <inheritdoc/>

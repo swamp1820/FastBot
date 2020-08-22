@@ -8,6 +8,10 @@ using Telegram.Bot.Args;
 
 namespace FastBot.Telegram
 {
+    /// <summary>
+    /// Class that provides conversation flow.
+    /// </summary>
+    /// <typeparam name="T">User state type.</typeparam>
     internal class Engine<T> where T : UserState, new()
     {
         private readonly IEnumerable<IConversation<T>> conversations;

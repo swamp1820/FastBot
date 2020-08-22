@@ -15,8 +15,14 @@
 
         public string ConversationState { get; set; }
 
+        /// <summary>
+        /// Bot awaiting for user answer.
+        /// </summary>
         public bool MustAnswer { get; set; }
 
+        /// <summary>
+        /// Is state was changed in last conversation.
+        /// </summary>
         public bool StateChanged { get; set; }
 
         /// <summary>
