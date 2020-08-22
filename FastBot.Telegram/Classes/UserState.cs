@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FastBot.Telegram.Classes
+﻿namespace FastBot.Telegram.Classes
 {
     public abstract class UserState
     {
@@ -17,6 +13,21 @@ namespace FastBot.Telegram.Classes
 
         public long Id { get; set; }
 
-        public Enum ConversationState { get; set; }
+        public string ConversationState { get; set; }
+
+        public bool MustAnswer { get; set; }
+
+        public bool StateChanged { get; set; }
+
+        /// <summary>
+        /// Sets conversation state.
+        /// </summary>
+        /// <param name="stateName">State name.</param>
+        public void SetConversationState(string stateName)
+        {
+            MustAnswer = false;
+            StateChanged = true;
+            ConversationState = stateName;
+        }
     }
 }
