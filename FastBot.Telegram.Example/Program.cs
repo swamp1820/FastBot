@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 
 namespace FastBot.Telegram.Example
 {
@@ -6,8 +7,18 @@ namespace FastBot.Telegram.Example
     {
         static void Main(string[] args)
         {
-            Bot<User>.Init("bot_token");
+            IConfiguration configuration = new ConfigurationBuilder()
+              .AddJsonFile("appsettings.json", true, true)
+              .Build();
+
+            var bot = new BotBuilder<User>()
+                .AddTelegram(configuration["TelegramToken"])
+                .AddState()
+                .Build();
+
+            bot.Start();
             Console.ReadLine();
+            bot.Stop();
         }
     }
 }

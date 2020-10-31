@@ -90,17 +90,5 @@ namespace FastBot.Telegram
                 e.ApiRequestException.ErrorCode,
                 e.ApiRequestException.Message);
         }
-
-        // TODO: implement
-        internal void BotOnInlineQuery(object sender, InlineQueryEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        // TODO: implement
-        internal void BotOnCallbackQuery(object sender, CallbackQueryEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
