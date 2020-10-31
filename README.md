@@ -16,12 +16,18 @@ public class User : UserState
     public string SomeInfo { get; set; }
 }
 ```
-3) Initialize bot
+3) Setup and start bot
 ``` c#
 static void Main(string[] args)
 {
-    Bot<User>.Init("bot_token");
-    Console.ReadLine();
+    var bot = new BotBuilder<User>()
+                .AddTelegram(configuration["TelegramToken"])
+                .AddState()
+                .Build();
+
+            bot.Start();
+            Console.ReadLine();
+            bot.Stop();
 }
 ```
 4) Create conversations by inherit [BaseConversation<T>](FastBot.Telegram/Classes/BaseConversation.cs).   
