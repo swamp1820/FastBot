@@ -8,8 +8,8 @@ The package makes it easy to build complex conversations without thinking about 
 
 ## Quick start
 1) Install package    
-`dotnet add PROJECT package FastBot.Telegram --version 0.3.0`
-2) Create model for user state by inherit [UserState](FastBot.Telegram/Classes/UserState.cs).
+`dotnet add PROJECT package FastBot --version 0.3.0`
+2) Create model for user state by inherit [UserState](FastBot/States/UserState.cs).
 ``` c#
 public class User : UserState
 {
@@ -36,7 +36,7 @@ static void Main(string[] args)
             bot.Stop();
 }
 ```
-4) Create conversations by inherit [BaseConversation<T>](FastBot.Telegram/Classes/BaseConversation.cs).   
-[Examples](FastBot.Telegram.Example/Conversations)
+4) Create conversations by inherit [BaseConversation<T>](FastBot.Telegram/Conversations/BaseConversation.cs).   
+[Examples](FastBot.Example/Conversations)
 > Mark your starting conversation class with `StateType.Start` attribute    
 > Switch conversation by `userState.SetConversationState("next_conversation_name")`   
