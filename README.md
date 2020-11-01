@@ -8,7 +8,7 @@ The package makes it easy to build complex conversations without thinking about 
 
 ## Quick start
 1) Install package    
-`dotnet add PROJECT package FastBot.Telegram --version 0.2.0`
+`dotnet add PROJECT package FastBot.Telegram --version 0.3.0`
 2) Create model for user state by inherit [UserState](FastBot.Telegram/Classes/UserState.cs).
 ``` c#
 public class User : UserState
@@ -20,13 +20,19 @@ public class User : UserState
 ``` c#
 static void Main(string[] args)
 {
-    var bot = new BotBuilder<User>()
-                .AddTelegram("Token")
-                .AddState()
+            // build bot
+            var bot = new BotBuilder<User>()
+                .UseState()
                 .Build();
 
-            bot.Start();
+            // add clients and start bot
+            bot
+                .AddTelegram("TelegramToken")
+                .Start();
+
             Console.ReadLine();
+
+            // stop
             bot.Stop();
 }
 ```
