@@ -1,12 +1,13 @@
-﻿using FastBot.Telegram.Classes;
-using FastBot.Telegram.Interfaces;
+﻿using FastBot.Conversations;
+using FastBot.Enums;
+using FastBot.Messages;
+using FastBot.States;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Telegram.Bot.Args;
 
-namespace FastBot.Telegram
+namespace FastBot.Core
 {
     /// <summary>
     /// Class that provides conversation flow.
@@ -23,14 +24,14 @@ namespace FastBot.Telegram
             this.stateRepository = stateRepository;
         }
 
-        internal async void BotOnMessageReceivedAsync(object sender, MessageEventArgs e)
+        internal async void MessageReceivedAsync(Message message)
         {
-            T user = GetOrCreateState(e.Message.Chat.Id);
+            T user = GetOrCreateState(message.ChatId, message.ClientType);
 
             var c = GetConversation(user.ConversationState);
             if (user.MustAnswer)
             {
-                await c.CheckAnswer(e.Message, user);
+                await c.CheckAnswer(message, user);
                 stateRepository.Update(user);
             }
 
@@ -64,7 +65,7 @@ namespace FastBot.Telegram
             stateRepository.Update(user);
         }
 
-        private T GetOrCreateState(long id)
+        private T GetOrCreateState(long id, ClientType clientType)
         {
             var user = stateRepository.Get(id);
             if (user == null)
@@ -72,6 +73,7 @@ namespace FastBot.Telegram
                 user = new T()
                 {
                     Id = id,
+                    Client = clientType,
                 };
                 Type type = conversations.Where(
                 x => ((ConversationAttribute)Attribute.GetCustomAttribute(x.GetType(), typeof(ConversationAttribute)))
@@ -82,13 +84,6 @@ namespace FastBot.Telegram
             };
 
             return (T)user;
-        }
-
-        internal void BotOnReceiveError(object sender, ReceiveErrorEventArgs e)
-        {
-            Console.WriteLine("Received error: {0} — {1}",
-                e.ApiRequestException.ErrorCode,
-                e.ApiRequestException.Message);
         }
     }
 }

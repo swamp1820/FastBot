@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /FastBot.Telegram.Example/appsettings.json
+/FastBot.Example/appsettings.json

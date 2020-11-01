@@ -1,13 +1,12 @@
-﻿using FastBot.Telegram.Classes;
-using FastBot.Telegram.Interfaces;
+﻿using FastBot.Conversations;
+using FastBot.States;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Reflection;
-using Telegram.Bot;
 
-namespace FastBot.Telegram
+namespace FastBot.Core
 {
-    public class BotBuilder<T> where T : UserState, new() 
+    public class BotBuilder<T> where T : UserState, new()
     {
         private readonly Bot<T> Bot;
         private readonly ServiceCollection collection;
@@ -16,6 +15,8 @@ namespace FastBot.Telegram
         {
             Bot = new Bot<T>();
             collection = new ServiceCollection();
+            collection.AddSingleton(new Clients());
+            collection.AddSingleton<Engine<T>>();
             Assembly ConsoleAppAssembly = Assembly.GetEntryAssembly();
             var ConsoleAppTypes =
                 from type in ConsoleAppAssembly.GetTypes()
@@ -28,7 +29,6 @@ namespace FastBot.Telegram
             {
                 collection.AddTransient(typeof(IConversation<T>), type);
             }
-            collection.AddSingleton<Engine<T>>();
         }
 
         public Bot<T> Build()
@@ -37,14 +37,7 @@ namespace FastBot.Telegram
             return Bot;
         }
 
-        public BotBuilder<T> AddTelegram(string token)
-        {
-            Bot.TelegramClient = new TelegramBotClient(token);
-            collection.AddSingleton(Bot.TelegramClient);
-            return this;
-        }
-
-        public BotBuilder<T> AddState()
+        public BotBuilder<T> UseState()
         {
             collection.AddTransient<StateRepository>();
             return this;

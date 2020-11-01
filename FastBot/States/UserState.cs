@@ -1,5 +1,7 @@
-﻿namespace FastBot.Telegram.Classes
-{
+﻿using FastBot.Enums;
+
+namespace FastBot.States
+{ 
     public abstract class UserState
     {
         public UserState()
@@ -12,6 +14,8 @@
         }
 
         public long Id { get; set; }
+
+        public ClientType Client { get; set; }
 
         public string ConversationState { get; set; }
 

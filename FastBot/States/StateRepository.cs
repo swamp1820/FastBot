@@ -1,4 +1,4 @@
-﻿namespace FastBot.Telegram.Classes
+﻿namespace FastBot.States
 {
     internal class StateRepository : BaseRepository<UserState>
     {

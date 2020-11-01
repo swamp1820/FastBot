@@ -1,4 +1,4 @@
-﻿namespace FastBot.Telegram.Classes
+﻿namespace FastBot.Enums
 {
     public enum StateType
     {

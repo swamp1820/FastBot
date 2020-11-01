@@ -1,6 +1,7 @@
-﻿using System;
+﻿using FastBot.Enums;
+using System;
 
-namespace FastBot.Telegram.Classes
+namespace FastBot.Conversations
 {
     /// <summary>
     /// Atrtribute that provides conversation metadata.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace FastBot.Telegram.Classes
+namespace FastBot.States
 {
     internal abstract class BaseRepository<T>
     {

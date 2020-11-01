@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using FastBot.Core;
+using Microsoft.Extensions.Configuration;
 using System;
 
 namespace FastBot.Telegram.Example
@@ -11,13 +12,19 @@ namespace FastBot.Telegram.Example
               .AddJsonFile("appsettings.json", true, true)
               .Build();
 
+            // build bot
             var bot = new BotBuilder<User>()
-                .AddTelegram(configuration["TelegramToken"])
-                .AddState()
+                .UseState()
                 .Build();
 
-            bot.Start();
+            // add clients and start bot
+            bot
+                .AddTelegram(configuration["TelegramToken"])
+                .Start();
+
             Console.ReadLine();
+
+            // stop
             bot.Stop();
         }
     }

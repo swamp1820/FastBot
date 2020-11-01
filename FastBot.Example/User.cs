@@ -1,4 +1,4 @@
-﻿using FastBot.Telegram.Classes;
+﻿using FastBot.States;
 
 namespace FastBot.Telegram.Example
 {

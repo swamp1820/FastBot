@@ -1,10 +1,9 @@
-﻿using FastBot.Telegram.Classes;
+﻿using FastBot.Messages;
 using System.Threading.Tasks;
-using Telegram.Bot.Types;
 
-namespace FastBot.Telegram.Interfaces
+namespace FastBot.Conversations
 {
-    public interface IConversation<T> where T : UserState
+    public interface IConversation<T>
     {
         /// <summary>
         /// Send conversation question to user.
