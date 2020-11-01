@@ -1,4 +1,4 @@
-# FastBot.Telegram
+# FastBot
 Library for telegram bot rapid prototyping.   
 The package makes it easy to build complex conversations without thinking about infrastructure out of the box.
 
@@ -8,7 +8,7 @@ The package makes it easy to build complex conversations without thinking about 
 
 ## Quick start
 1) Install package    
-`dotnet add PROJECT package FastBot.Telegram --version 0.1.0`
+`dotnet add PROJECT package FastBot.Telegram --version 0.2.0`
 2) Create model for user state by inherit [UserState](FastBot.Telegram/Classes/UserState.cs).
 ``` c#
 public class User : UserState
@@ -21,7 +21,7 @@ public class User : UserState
 static void Main(string[] args)
 {
     var bot = new BotBuilder<User>()
-                .AddTelegram(configuration["TelegramToken"])
+                .AddTelegram("Token")
                 .AddState()
                 .Build();
 
