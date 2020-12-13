@@ -3,5 +3,6 @@
     public enum ClientType
     {
         Telegram,
+        Vk,
     }
 }

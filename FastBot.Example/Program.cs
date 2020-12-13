@@ -20,6 +20,7 @@ namespace FastBot.Telegram.Example
             // add clients and start bot
             bot
                 .AddTelegram(configuration["TelegramToken"])
+                .AddVk(configuration["VkToken"], Convert.ToUInt64(configuration["VkGroupId"]))
                 .Start();
 
             Console.ReadLine();
