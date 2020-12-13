@@ -1,6 +1,6 @@
 # FastBot
-Library for telegram bot rapid prototyping.   
-The package makes it easy to build complex conversations without thinking about infrastructure out of the box.
+Library for bot rapid prototyping.   
+The package makes it easy to build complex conversations out of the box.
 
 ## Features
 - User state management
