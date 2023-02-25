@@ -22,5 +22,5 @@ jobs:
       run: dotnet pack --configuration Release
     - name: Publish
       env:
-        VERSION: ${GITHUB_REF_NAME}
+        VERSION: ${{github.ref_name}}
       run: dotnet nuget push "FastBot/bin/Release/FastBot.${VERSION}.nupkg"  --api-key ${{secrets.PACKAGE_PAT}} --source "https://nuget.pkg.github.com/swamp1820/index.json"
