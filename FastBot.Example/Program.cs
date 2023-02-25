@@ -1,6 +1,6 @@
 ﻿using FastBot.Core;
-using Microsoft.Extensions.Configuration;
 using System;
+using Microsoft.Extensions.Configuration;
 
 namespace FastBot.Telegram.Example
 {
@@ -8,7 +8,7 @@ namespace FastBot.Telegram.Example
     {
         static void Main(string[] args)
         {
-            IConfiguration configuration = new ConfigurationBuilder()
+            var configuration = new ConfigurationBuilder()
               .AddJsonFile("appsettings.json", true, true)
               .Build();
 
@@ -20,7 +20,7 @@ namespace FastBot.Telegram.Example
             // add clients and start bot
             bot
                 .AddTelegram(configuration["TelegramToken"])
-                .AddVk(configuration["VkToken"], Convert.ToUInt64(configuration["VkGroupId"]))
+                //.AddVk(configuration["VkToken"], Convert.ToUInt64(configuration["VkGroupId"]))
                 .Start();
 
             Console.ReadLine();

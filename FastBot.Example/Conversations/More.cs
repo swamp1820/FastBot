@@ -21,7 +21,7 @@ namespace FastBot.Telegram.Example.Conversations
         public override async Task CheckAnswer(Message message, User userState)
         {
             await Clients.Send(userState, "GoTo Hello state");
-            userState.SetConversationState("Hello");
+            userState.SetConversationState(nameof(Hello));
         }
     }
 }

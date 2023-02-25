@@ -37,11 +37,11 @@ namespace FastBot.Telegram.Example.Conversations
             switch (message.Text)
             {
                 case "Yes":
-                    userState.SetConversationState("More");
+                    userState.SetConversationState(nameof(More));
                     break;
 
                 case "No":
-                    userState.SetConversationState("Echo");
+                    userState.SetConversationState(nameof(Echo));
                     break;
 
                 default:

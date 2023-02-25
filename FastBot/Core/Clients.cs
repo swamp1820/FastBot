@@ -12,10 +12,10 @@ namespace FastBot.Core
     {
         internal Dictionary<ClientType, IAdapter> Adapters = new Dictionary<ClientType, IAdapter>();
 
-        public Task Send(Message message)
-        {
-            return Adapters.Where(x => x.Key == message.ClientType).Single().Value.SendTextMessageAsync(message.ChatId, message.Text);
-        }
+        /// <summary>
+        /// Send message.
+        /// </summary>
+        public Task Send(Message message) => GetAdapter(message.ClientType).SendTextMessageAsync(message.ChatId, message.Text);
 
         internal void StopReceiving()
         {
@@ -33,14 +33,16 @@ namespace FastBot.Core
             }
         }
 
-        public Task Send(UserState user, string message)
-        {
-            return Adapters.Where(x => x.Key == user.Client).Single().Value.SendTextMessageAsync(user.Id, message);
-        }
+        /// <summary>
+        /// Send message.
+        /// </summary>
+        public Task Send(UserState user, string message) => GetAdapter(user.Client).SendTextMessageAsync(user.Id, message);
 
-        public Task Send(UserState user, string message, Keyboard keyboard)
-        {
-            return Adapters.Where(x => x.Key == user.Client).Single().Value.SendTextMessageAsync(user.Id, message, keyboard);
-        }
+        /// <summary>
+        /// Send message.
+        /// </summary>
+        public Task Send(UserState user, string message, Keyboard keyboard) => GetAdapter(user.Client).SendTextMessageAsync(user.Id, message, keyboard);
+
+        private IAdapter GetAdapter(ClientType clientType) => Adapters.Where(x => x.Key == clientType).Single().Value;
     }
 }

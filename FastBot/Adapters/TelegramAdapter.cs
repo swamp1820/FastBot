@@ -61,9 +61,8 @@ namespace FastBot.Adapters
 
                 bt.Add(r);
             }
-            var kb = new ReplyKeyboardMarkup()
+            var kb = new ReplyKeyboardMarkup(bt)
             {
-                Keyboard = bt,
                 ResizeKeyboard = keyboard.Resize,
                 OneTimeKeyboard = keyboard.OneTime,
             };
