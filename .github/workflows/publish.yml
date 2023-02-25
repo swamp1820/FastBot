@@ -4,8 +4,9 @@
 name: Publish
 
 on:
-  push:
-    branches: [ "master" ]
+  release:
+    - created
+    
 
 jobs:
   build:
@@ -21,4 +22,4 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release
     - name: Publish
-      run: dotnet nuget push "bin/Release/FastBot.1.0.0.nupkg"  --api-key ${{secrets.PACKAGE_PAT}} --source "https://nuget.pkg.github.com/swamp1820/index.json"
+      run: dotnet nuget push "bin/Release/FastBot.${{GITHUB_REF_NAME}}.nupkg"  --api-key ${{secrets.PACKAGE_PAT}} --source "https://nuget.pkg.github.com/swamp1820/index.json"
