@@ -2,7 +2,7 @@
 using System;
 using Microsoft.Extensions.Configuration;
 
-namespace FastBot.Telegram.Example
+namespace FastBot.Example
 {
     class Program
     {

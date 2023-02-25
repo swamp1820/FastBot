@@ -1,6 +1,6 @@
 ﻿using FastBot.States;
 
-namespace FastBot.Telegram.Example
+namespace FastBot.Example
 {
     public class User : UserState
     {

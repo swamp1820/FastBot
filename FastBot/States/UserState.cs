@@ -1,4 +1,5 @@
-﻿using FastBot.Enums;
+﻿using System.Collections.Generic;
+using FastBot.Enums;
 
 namespace FastBot.States
 { 
@@ -39,5 +40,7 @@ namespace FastBot.States
             StateChanged = true;
             ConversationState = stateName;
         }
+
+        public Dictionary<string, object> Bag {get;set;} = new Dictionary<string, object>();
     }
 }

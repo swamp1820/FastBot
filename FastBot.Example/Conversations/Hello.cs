@@ -5,7 +5,7 @@ using FastBot.Conversations;
 using FastBot.Enums;
 using FastBot.Messages;
 
-namespace FastBot.Telegram.Example.Conversations
+namespace FastBot.Example.Conversations
 {
     [Conversation(nameof(Hello), StateType.Start)]
     public class Hello : BaseConversation<User>

@@ -3,7 +3,7 @@ using FastBot.Core;
 using FastBot.Messages;
 using System.Threading.Tasks;
 
-namespace FastBot.Telegram.Example.Conversations
+namespace FastBot.Example.Conversations
 {
     [Conversation(nameof(More))]
     internal class More : BaseConversation<User>
@@ -14,12 +14,13 @@ namespace FastBot.Telegram.Example.Conversations
 
         public override async Task AskQuestion(User userState)
         {
-            await Clients.Send(userState, "I'm Fastbot.Telegram");
+            await Clients.Send(userState, "I'm Fastbot");
             await Clients.Send(userState, "What is your name?");
         }
 
         public override async Task CheckAnswer(Message message, User userState)
         {
+            userState.Bag["Name"] = message.Text;
             await Clients.Send(userState, "GoTo Hello state");
             userState.SetConversationState(nameof(Hello));
         }
