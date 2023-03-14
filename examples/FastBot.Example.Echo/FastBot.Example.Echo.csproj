@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FastBot\FastBot.csproj" />
+    <ProjectReference Include="..\..\FastBot\FastBot.csproj" />
   </ItemGroup>
 
   <ItemGroup>

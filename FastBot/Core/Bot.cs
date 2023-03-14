@@ -43,5 +43,13 @@ namespace FastBot.Core
 
             return this;
         }
+
+        public Bot<T> AddCustomAdapter(IAdapter adapter)
+        {
+            Clients.Adapters.Add(
+                ClientType.Custom, adapter);
+
+            return this;
+        }
     }
 }

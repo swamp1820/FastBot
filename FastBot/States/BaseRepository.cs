@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace FastBot.States
 {
-    internal abstract class BaseRepository<T>
+    internal class BaseRepository<T> : IRepository<T>
     {
         protected string DBNAME = $@"Filename=.\{Assembly.GetEntryAssembly().GetName().Name}.db; Connection=shared";
         private readonly string tableName;
@@ -15,7 +15,12 @@ namespace FastBot.States
             this.tableName = tableName;
         }
 
-        internal void Add(T entity)
+        public BaseRepository() : this("UserStates")
+        {
+
+        }
+
+        public void Add(T entity)
         {
             using (var db = new LiteDatabase(DBNAME))
             {
@@ -24,7 +29,7 @@ namespace FastBot.States
             }
         }
 
-        internal void Update(T entity)
+        public void Update(T entity)
         {
             using (var db = new LiteDatabase(DBNAME))
             {
@@ -33,7 +38,7 @@ namespace FastBot.States
             }
         }
 
-        internal IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
             IEnumerable<T> results;
             using (var db = new LiteDatabase(DBNAME))
@@ -43,7 +48,7 @@ namespace FastBot.States
             }
         }
 
-        internal T Get(long id)
+        public T Get(long id)
         {
             using (var db = new LiteDatabase(DBNAME))
             {

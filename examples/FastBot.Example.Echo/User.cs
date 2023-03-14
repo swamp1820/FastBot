@@ -1,6 +1,6 @@
 ﻿using FastBot.States;
 
-namespace FastBot.Example
+namespace FastBot.Example.Echo
 {
     public class User : UserState
     {

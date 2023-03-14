@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastBot", "FastBot\FastBot.csproj", "{ADF80D2C-41CA-4DCF-9A16-5578C698397D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastBot.Example", "FastBot.Example\FastBot.Example.csproj", "{5E7DA3C0-A136-4FEE-A036-B173417B2E3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastBot.Example.Echo", "examples\FastBot.Example.Echo\FastBot.Example.Echo.csproj", "{5E7DA3C0-A136-4FEE-A036-B173417B2E3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,7 +5,7 @@ using FastBot.Conversations;
 using FastBot.Enums;
 using FastBot.Messages;
 
-namespace FastBot.Example.Conversations
+namespace FastBot.Example.Echo.Conversations
 {
     [Conversation(nameof(Hello), StateType.Start)]
     public class Hello : BaseConversation<User>

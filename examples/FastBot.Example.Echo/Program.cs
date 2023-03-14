@@ -2,7 +2,7 @@
 using System;
 using Microsoft.Extensions.Configuration;
 
-namespace FastBot.Example
+namespace FastBot.Example.Echo
 {
     class Program
     {
@@ -23,8 +23,8 @@ namespace FastBot.Example
                 //.AddVk(configuration["VkToken"], Convert.ToUInt64(configuration["VkGroupId"]))
                 .Start();
 
-            Console.ReadLine();
 
+            Console.ReadLine();
             // stop
             bot.Stop();
         }

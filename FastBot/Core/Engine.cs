@@ -16,9 +16,9 @@ namespace FastBot.Core
     internal class Engine<T> where T : UserState, new()
     {
         private readonly IEnumerable<IConversation<T>> conversations;
-        private readonly StateRepository stateRepository;
+        private readonly IRepository<T> stateRepository;
 
-        public Engine(IEnumerable<IConversation<T>> conversations, StateRepository stateRepository)
+        public Engine(IEnumerable<IConversation<T>> conversations, BaseRepository<T> stateRepository)
         {
             this.conversations = conversations;
             this.stateRepository = stateRepository;

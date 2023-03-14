@@ -4,5 +4,6 @@
     {
         Telegram,
         Vk,
+        Custom,
     }
 }

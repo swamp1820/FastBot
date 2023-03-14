@@ -4,7 +4,7 @@ using FastBot.Messages;
 using System.Threading.Tasks;
 
 
-namespace FastBot.Example.Conversations
+namespace FastBot.Example.Echo.Conversations
 {
     [Conversation(nameof(Echo))]
     internal class Echo : BaseConversation<User>

@@ -36,7 +36,7 @@ static void Main(string[] args)
             bot.Stop();
 }
 ```
-4) Create conversations by inherit [BaseConversation<T>](FastBot.Telegram/Conversations/BaseConversation.cs).   
-[Examples](FastBot.Example/Conversations)
+4) Create conversations by inherit [BaseConversation<T>](FastBot/Conversations/BaseConversation.cs).   
+[Examples](FastBot.Example.Echo/Conversations)
 > Mark your starting conversation class with `StateType.Start` attribute    
 > Switch conversation by `userState.SetConversationState("next_conversation_name")`   
