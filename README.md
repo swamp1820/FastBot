@@ -6,7 +6,7 @@ The package makes it easy to build complex conversations out of the box, great f
 ## Features
 - Support multiple channels simultaneously (customizable)
 - Fast setup (only credentials needed)
-- Local serverless DB id default configuration (customizable)
+- Local serverless DB in default configuration (customizable)
 
 
 ## Supported channels
