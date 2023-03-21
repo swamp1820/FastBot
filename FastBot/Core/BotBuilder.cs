@@ -1,6 +1,7 @@
 ﻿using FastBot.Conversations;
 using FastBot.States;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
 using System.Reflection;
 
@@ -39,7 +40,13 @@ namespace FastBot.Core
 
         public BotBuilder<T> UseState()
         {
-            collection.AddTransient<BaseRepository<T>>();
+            collection.AddTransient<IRepository<T>,BaseRepository<T>>();
+            return this;
+        }
+
+        public BotBuilder<T> UseState(Type type)
+        {
+            collection.AddTransient(typeof(IRepository<T>), type);
             return this;
         }
     }

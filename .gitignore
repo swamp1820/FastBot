@@ -342,3 +342,4 @@ healthchecksdb
 .vscode
 FastBot.Example.Echo.db
 examples/FastBot.Example.Echo/appsettings.json
+examples/FastBot.Example.Repo/appsettings.json

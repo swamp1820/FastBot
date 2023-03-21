@@ -18,7 +18,7 @@ namespace FastBot.Core
         private readonly IEnumerable<IConversation<T>> conversations;
         private readonly IRepository<T> stateRepository;
 
-        public Engine(IEnumerable<IConversation<T>> conversations, BaseRepository<T> stateRepository)
+        public Engine(IEnumerable<IConversation<T>> conversations, IRepository<T> stateRepository)
         {
             this.conversations = conversations;
             this.stateRepository = stateRepository;
@@ -46,6 +46,9 @@ namespace FastBot.Core
             return conversations.Where(
                 x => ((ConversationAttribute)Attribute.GetCustomAttribute(x.GetType(), typeof(ConversationAttribute)))
                 .Conversation == conversation)
+                .FirstOrDefault() ?? conversations.Where(
+                x => ((ConversationAttribute)Attribute.GetCustomAttribute(x.GetType(), typeof(ConversationAttribute)))
+                .Type == StateType.Start)
                 .FirstOrDefault();
         }
 

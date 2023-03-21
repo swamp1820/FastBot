@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastBot", "FastBot\FastBot.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastBot.Example.Echo", "examples\FastBot.Example.Echo\FastBot.Example.Echo.csproj", "{5E7DA3C0-A136-4FEE-A036-B173417B2E3E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{ACEB4FF4-AEAC-40CC-B593-B5482CDE973E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastBot.Example.Repo", "examples\FastBot.Example.Repo\FastBot.Example.Repo.csproj", "{8926190D-7B1C-40D4-A4B6-60A594A0BC1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,11 +25,18 @@ Global
 		{5E7DA3C0-A136-4FEE-A036-B173417B2E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E7DA3C0-A136-4FEE-A036-B173417B2E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E7DA3C0-A136-4FEE-A036-B173417B2E3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8926190D-7B1C-40D4-A4B6-60A594A0BC1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8926190D-7B1C-40D4-A4B6-60A594A0BC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8926190D-7B1C-40D4-A4B6-60A594A0BC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8926190D-7B1C-40D4-A4B6-60A594A0BC1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93438C58-FF5B-426E-B2A9-B93B8AF2644C}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8926190D-7B1C-40D4-A4B6-60A594A0BC1E} = {ACEB4FF4-AEAC-40CC-B593-B5482CDE973E}
 	EndGlobalSection
 EndGlobal
