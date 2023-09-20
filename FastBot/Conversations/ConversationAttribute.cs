@@ -11,7 +11,7 @@ namespace FastBot.Conversations
         /// <summary>
         /// Conversation name.
         /// </summary>
-        public string Conversation { get; private set; }
+        public string Name { get; private set; }
 
         /// <summary>
         /// Conversation type.
@@ -33,7 +33,7 @@ namespace FastBot.Conversations
         /// <param name="type">Conversation type.</param>
         public ConversationAttribute(string conversationName, StateType type)
         {
-            Conversation = conversationName;
+            Name = conversationName;
             Type = type;
         }
     }

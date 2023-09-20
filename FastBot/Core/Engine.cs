@@ -44,12 +44,15 @@ namespace FastBot.Core
         }
 
         // резолвит обработчик сообщения
-        private IConversation<T> GetConversation(string conversation)
+        private IConversation<T> GetConversation(string conversationName)
         {
             return conversations.Where(
-                x => ((ConversationAttribute)Attribute.GetCustomAttribute(x.GetType(), typeof(ConversationAttribute)))
-                .Conversation == conversation)
-                .FirstOrDefault() ?? conversations.Where(
+                x =>
+                {
+                    var attr = (ConversationAttribute)Attribute.GetCustomAttribute(x.GetType(), typeof(ConversationAttribute));
+                    return attr.Name == conversationName;
+                }).FirstOrDefault()
+                ?? conversations.Where(
                 x => ((ConversationAttribute)Attribute.GetCustomAttribute(x.GetType(), typeof(ConversationAttribute)))
                 .Type == StateType.Start)
                 .FirstOrDefault();
