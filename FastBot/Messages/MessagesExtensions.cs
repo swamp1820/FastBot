@@ -10,6 +10,6 @@ namespace FastBot.Messages
         /// Compare text in message.
         /// </summary>
         public static bool CompareText(this Message message, string textToCompare) =>
-            String.Equals(message.Text, textToCompare, comparisonType: StringComparison.InvariantCultureIgnoreCase);
+            String.Equals(message?.Text, textToCompare, comparisonType: StringComparison.InvariantCultureIgnoreCase);
     }
 }

@@ -338,8 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/FastBot.Example/appsettings.json
 .vscode
-FastBot.Example.Echo.db
-examples/FastBot.Example.Echo/appsettings.json
-examples/FastBot.Example.Repo/appsettings.json
+FastBot.Example.**.db
+examples/**/appsettings.json

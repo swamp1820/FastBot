@@ -17,6 +17,14 @@ namespace FastBot.Conversations
         /// Conversation type.
         /// </summary>
         public StateType Type { get; private set; }
+        
+        /// <summary>
+        /// Initialize new instance of <see cref="ConversationAttribute"/>.
+        /// </summary>
+        /// <param name="conversationName">Name of conversation. Must be unique.</param>
+        public ConversationAttribute() : this(string.Empty)
+        {
+        }
 
         /// <summary>
         /// Initialize new instance of <see cref="ConversationAttribute"/>.

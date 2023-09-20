@@ -13,13 +13,13 @@ namespace FastBot.Example.Echo.Conversations
         {
         }
 
-        public override async Task AskQuestion(User userState)
+        public override async Task OnStateEntered(User userState)
         {
             await Clients.Send(userState, "I'm Fastbot");
             await Clients.Send(userState, "What is your name?");
         }
 
-        public override async Task CheckAnswer(Message message, User userState)
+        public override async Task OnMessageReceived(Message message, User userState)
         {
             userState.Bag["Name"] = message.Text;
             await Clients.Send(userState, $"Hello {userState.Bag.GetValueOrDefault("Name")}");

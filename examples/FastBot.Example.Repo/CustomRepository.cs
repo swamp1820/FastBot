@@ -13,7 +13,7 @@ internal class CustomRepository : IRepository<User>
     public User Get(long id)
     {
         inMemoryTable.TryGetValue(id, out User u);
-        return u == null ? new User(id): u;
+        return u == null ? new User(id) : u;
     }
 
     public IEnumerable<User> GetAll()

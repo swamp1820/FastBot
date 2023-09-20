@@ -16,9 +16,12 @@ namespace FastBot.Conversations
         protected Clients Clients { get; private set; }
 
         /// <inheritdoc/>
-        public abstract Task CheckAnswer(Message message, T userState);
+        public virtual bool IsTriggered(Message message, T userState) => false;
 
         /// <inheritdoc/>
-        public abstract Task AskQuestion(T userState);
+        public abstract Task OnMessageReceived(Message message, T userState);
+
+        /// <inheritdoc/>
+        public virtual Task OnStateEntered(T userState) => Task.CompletedTask;
     }
 }

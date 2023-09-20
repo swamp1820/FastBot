@@ -43,12 +43,12 @@ internal class Echo : BaseConversation<User>
 
     }
 
-    public override async Task AskQuestion(User userState)
+    public override async Task OnStateEntered(User userState)
     {
         await Clients.Send(userState, "I'll repeat previous text");
     }
 
-    public override async Task CheckAnswer(Message message, User userState)
+    public override async Task OnMessageReceived(Message message, User userState)
     {
         await Clients.Send(userState, $"Previous text was:{userState.PrevText}");
         userState.PrevText = message.Text;

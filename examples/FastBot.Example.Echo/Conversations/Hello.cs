@@ -26,13 +26,13 @@ namespace FastBot.Example.Echo.Conversations
             OneTime = true,
         };
 
-        public override async Task AskQuestion(User userState)
+        public override async Task OnStateEntered(User userState)
         {
             await Clients.Send(userState, "Hi, I'm FastBot.Telegram");
             await Clients.Send(userState, "Do you want to know about me more?", yNKeyboard);
         }
 
-        public override async Task CheckAnswer(Message message, User userState)
+        public override async Task OnMessageReceived(Message message, User userState)
         {
             switch (message.Text)
             {

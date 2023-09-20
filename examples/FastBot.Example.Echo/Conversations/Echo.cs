@@ -13,12 +13,12 @@ namespace FastBot.Example.Echo.Conversations
         {
         }
 
-        public override async Task AskQuestion(User userState)
+        public override async Task OnStateEntered(User userState)
         {
             await Clients.Send(userState, "Ok, i will repeat everything you say. Say \"exit\" or \"quit\" for reseting.");
         }
-
-        public override async Task CheckAnswer(Message message, User userState)
+        
+        public override async Task OnMessageReceived(Message message, User userState)
         {
             if (!message.CompareText("exit") && !message.CompareText("quit"))
             {
