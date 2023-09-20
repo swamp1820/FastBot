@@ -26,21 +26,24 @@ namespace FastBot.Core
 
         internal async void MessageReceivedAsync(Message message)
         {
+            // найдем пользователя
             T user = GetOrCreateState(message.ChatId, message.ClientType);
 
-            var c = GetConversation(user.ConversationState);
+            // если ждали ответа
             if (user.MustAnswer)
             {
-                await c.CheckAnswer(message, user);
+                await GetConversation(user.ConversationState).CheckAnswer(message, user);
                 stateRepository.Update(user);
             }
 
+            // если не ждали ответа или состояние изменилось
             if (!user.MustAnswer || user.StateChanged)
             {
                 await Ask(user);
             }
         }
 
+        // резолвит обработчик сообщения
         private IConversation<T> GetConversation(string conversation)
         {
             return conversations.Where(
@@ -55,8 +58,7 @@ namespace FastBot.Core
         private async Task Ask(T user)
         {
             user.StateChanged = false;
-            var c = GetConversation(user.ConversationState);
-            await c.AskQuestion(user);
+            await GetConversation(user.ConversationState).AskQuestion(user);
 
             if (user.StateChanged)
             {
@@ -86,7 +88,7 @@ namespace FastBot.Core
                 stateRepository.Add(user);
             };
 
-            return (T)user;
+            return user;
         }
     }
 }

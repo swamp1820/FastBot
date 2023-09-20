@@ -2,9 +2,9 @@ using FastBot.States;
 
 namespace FastBot.Example.Repo;
 
-public class CustomRepository : IRepository<User>
+internal class CustomRepository : IRepository<User>
 {
-    Dictionary<long, User> inMemoryTable = new Dictionary<long, User>();
+    readonly Dictionary<long, User> inMemoryTable = new();
     public void Add(User entity)
     {
         inMemoryTable.TryAdd(entity.Id, entity);

@@ -25,7 +25,7 @@ Console.ReadLine();
 // stop
 bot.Stop();
 
-public class User : UserState
+internal class User : UserState
 {
     public User() { }
     public User(long id) : base(id)

@@ -1,6 +1,7 @@
 ﻿using FastBot.Conversations;
 using FastBot.Core;
 using FastBot.Messages;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FastBot.Example.Echo.Conversations
@@ -21,7 +22,7 @@ namespace FastBot.Example.Echo.Conversations
         public override async Task CheckAnswer(Message message, User userState)
         {
             userState.Bag["Name"] = message.Text;
-            await Clients.Send(userState, $"Hello {userState.Bag.TryGetValue("Name", out object name)}");
+            await Clients.Send(userState, $"Hello {userState.Bag.GetValueOrDefault("Name")}");
             userState.SetConversationState(nameof(Hello));
         }
     }

@@ -40,8 +40,7 @@ namespace FastBot.Core
 
         public BotBuilder<T> UseState()
         {
-            collection.AddTransient<IRepository<T>,BaseRepository<T>>();
-            return this;
+            return UseState(typeof(BaseRepository<T>));
         }
 
         public BotBuilder<T> UseState(Type type)
